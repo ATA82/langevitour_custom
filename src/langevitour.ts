@@ -1322,7 +1322,9 @@ export class Langevitour extends EventTarget {
             if (this.pointActive[i]) {
                 let size = this.pointSize[i];
                 ctx.fillStyle = this.fillsFrame[i];
-                ctx.fillRect(this.xScaleClamped(this.xy[0][i])-size, this.yScaleClamped(this.xy[1][i])-size, size*2, size*2);
+                ctx.beginPath();
+        ctx.arc(this.xScaleClamped(this.xy[0][i]), this.yScaleClamped(this.xy[1][i]), size, 0, 2 * Math.PI, false);
+        ctx.fill();
             }
         }
         
